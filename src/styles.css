@@ -1,4 +1,29 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.section {
+  margin: 20px;
+}
+
+.title {
+  color: skyblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.drop-zone {
+  border: 2px dashed rgb(225, 224, 224);
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 350px;
+  height: 150px;
+  overflow: hidden;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.preview-image {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* height: min-content; */
+  object-fit: cover;
 }
