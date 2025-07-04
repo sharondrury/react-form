@@ -7,17 +7,6 @@ const Dropzone = ({ className }) => {
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      // this will add each image not replace https://www.youtube.com/watch?v=eGVC8UUqCBE
-      //   if (acceptedFiles?.length) {
-      //     setFiles((previousFiles) => [
-      //       ...previousFiles,
-      //       ...acceptedFiles.map((file) =>
-      //         Object.assign(file, { preview: URL.createObjectURL(file) })
-      //       ),
-      //     ]);
-      //   }
-      // }, []);
-
       if (acceptedFiles?.length) {
         // Clean up previous file URLs to prevent memory leaks
         files.forEach((file) => {
@@ -45,12 +34,14 @@ const Dropzone = ({ className }) => {
   });
 
   return (
-    <form>
+    <>
+      <p className="title">Upload Avatar</p>
       <div {...getRootProps()} className={className}>
         <input {...getInputProps()} />
         {isDragActive ? (
           <p>Drop the files here ...</p>
-        ) : (
+        ) : files.length > 0 ? (
+          // Show uploaded images when files exist
           <div>
             {files.map((file) => (
               <div key={file.name}>
@@ -62,20 +53,25 @@ const Dropzone = ({ className }) => {
               </div>
             ))}
           </div>
+        ) : (
+          <div className="dropzone-placeholder">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7,10 12,15 17,10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <p>Drag and drop or click to upload</p>
+          </div>
         )}
       </div>
-      {/* <ul>
-        {files.map((file) => (
-          <li key={file.name}>
-            <img
-              className="preview-image"
-              src={file.preview}
-              alt="Your image"
-            />
-          </li>
-        ))}
-      </ul> */}
-    </form>
+    </>
   );
 };
 
