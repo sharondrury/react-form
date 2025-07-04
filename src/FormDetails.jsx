@@ -1,8 +1,7 @@
-import Dropzone from "./Dropzone";
 import { useState } from "react";
-import "./styles.css";
+import TicketSubmitted from "./TicketSubmitted";
 
-const Homepage = () => {
+const FormDetails = () => {
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
   const [isVisible, setIsVisible] = useState(true);
@@ -19,6 +18,7 @@ const Homepage = () => {
     // const usernamePattern = /^[a-zA-Z]+$/;
     // const usernamePattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9@]+$/;
 
+    //Name
     if (!formFields["name"]) {
       formIsValid = false;
       formErrors["name"] = "This field cannot be empty";
@@ -85,46 +85,29 @@ const Homepage = () => {
 
   return (
     <>
-      <section className="background-images">
-        <div className="line-image"></div>
-        <div className="bottom-left-image"></div>
-        <div className="top-right-image"></div>
-      </section>
-      <section className="section-container">
-        <div className="main-container">
-          <div className="heading-container">
-            <h1>Your Journey to Coding Conf</h1>
-            <h1>2025 Starts Here!</h1>
-            <h2>Secure your spot at next year's biggest coding conference.</h2>
-          </div>
-        </div>
+      <form onSubmit={contactSubmit}>
+        {isVisible && (
+          <section className="form-container-main">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="name"
+              value={fields["name"]}
+              onChange={(e) => handleChange("name", e.target.value)}
+              placeholder="Joe Egg"
+            />
+            <span className="error">{errors["name"]}</span>
+            <label>Email address</label>
+            <input
+              type="email"
+              name="email"
+              value={fields["email"]}
+              onChange={(e) => handleChange("email", e.target.value)}
+              placeholder="joeegg@gmail.com"
+            />
+            <span className="error">{errors["email"]}</span>
 
-        <div className="form-container">
-          <div>
-            <form onSubmit={contactSubmit}>
-              {isVisible && (
-                <section className="form-container-main">
-                  <Dropzone className="drop-zone" />
-                  <label>Full Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={fields["name"]}
-                    onChange={(e) => handleChange("name", e.target.value)}
-                    placeholder="Joe Egg"
-                  />
-                  <span className="error">{errors["name"]}</span>
-                  <label>Email address</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={fields["email"]}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    placeholder="joeegg@gmail.com"
-                  />
-                  <span className="error">{errors["email"]}</span>
-
-                  {/* <label>Github username</label>
+            {/* <label>Github username</label>
           <input
             type="text"
             name="address"
@@ -133,7 +116,7 @@ const Homepage = () => {
             placeholder="@yourusername"
           /> */}
 
-                  {/* <div className="mt-4">
+            {/* <div className="mt-4">
               {!isVisible && (
                 <div className="text-green-600 font-bold text-center">
                   Form submitted successfully! Fields are now hidden.
@@ -141,35 +124,32 @@ const Homepage = () => {
               )}
             </div> */}
 
-                  {/* <div>{!isVisible && <TicketSubmitted />}</div> */}
-                </section>
-              )}
+            {/* <div>{!isVisible && <TicketSubmitted />}</div> */}
+          </section>
+        )}
 
+        <div>
+          {!isVisible && (
+            <div>
               <div>
-                {!isVisible && (
-                  <div>
-                    <div>
-                      <h1>Does this work {fields.name}</h1>
-                    </div>
-                    {/* <TicketSubmitted /> */}
-                  </div>
-                )}
+                <h1>Does this work {fields.name}</h1>
               </div>
-
-              <button
-                className="btn btn-lg pro"
-                id="submit"
-                value="Submit"
-                onClick={contactSubmit}
-              >
-                Generate My Ticket
-              </button>
-            </form>
-          </div>
+              {/* <TicketSubmitted /> */}
+            </div>
+          )}
         </div>
-      </section>
+
+        <button
+          className="btn btn-lg pro"
+          id="submit"
+          value="Submit"
+          onClick={contactSubmit}
+        >
+          Generate My Ticket
+        </button>
+      </form>
     </>
   );
 };
 
-export default Homepage;
+export default FormDetails;
