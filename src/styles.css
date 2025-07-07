@@ -116,7 +116,7 @@ ul {
 }
 
 input {
-  margin: 10px 0 20px 0;
+  margin: 10px 0 0 0;
   width: 100%;
   padding: 9px 0 9px 9px;
   border-radius: 8px;
@@ -127,7 +127,13 @@ input {
 }
 
 label {
+  padding-top: 10px;
   color: white;
+}
+
+span {
+  color: rgb(233, 59, 59);
+  padding: 5px 0 10px 0;
 }
 
 .form-container {
@@ -144,7 +150,7 @@ label {
   margin-top: 30px;
 }
 
-button {
+.generate-button {
   width: 100%;
   background: rgb(212, 129, 143);
   border: none;
@@ -154,8 +160,99 @@ button {
   border-radius: 8px;
   padding: 12px;
   font-size: 16px;
+  margin-top: 10px;
 }
 
 h1 {
   color: white;
+}
+
+.ticket-generated-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.ticket-container {
+  width: 600px;
+  height: 300px;
+  /* display: flex;
+  justify-content: center;   */
+  margin-top: 20px;
+}
+
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  /* background-color: red; */
+  background-image: url(./images/pattern-ticket.svg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  font-family: "Inconsolata", monospace;
+  height: 240px;
+}
+
+.email-color {
+  color: rgb(187, 66, 66);
+}
+
+p {
+  font-size: 16px;
+  line-height: none;
+  color: white;
+}
+
+.date {
+  padding-left: 45px;
+}
+
+.logo {
+  background-image: url(./images/logo-full.svg);
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 30px;
+}
+
+.conf-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.your-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.email-and-icon {
+  display: flex;
+  align-items: center;
+}
+
+.github-icon {
+  background-image: url(./images/icon-github.svg);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.random-text {
+  display: flex;
+  align-items: center;
+  transform: rotate(90deg);
+  padding-right: 10px;
+}
+
+.your-details-container-with-avatar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar-display {
+  width: 50px;
+  height: 50px;
 }

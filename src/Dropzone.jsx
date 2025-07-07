@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-const Dropzone = ({ className }) => {
+const Dropzone = ({ className, onFilesChange }) => {
   const [files, setFiles] = useState([]);
 
   const onDrop = useCallback(
@@ -16,14 +16,19 @@ const Dropzone = ({ className }) => {
         });
 
         // Replace all files with the new ones
-        setFiles(
-          acceptedFiles.map((file) =>
-            Object.assign(file, { preview: URL.createObjectURL(file) })
-          )
+        const newFiles = acceptedFiles.map((file) =>
+          Object.assign(file, { preview: URL.createObjectURL(file) })
         );
+
+        setFiles(newFiles);
+
+        // Pass the files back to parent component
+        if (onFilesChange) {
+          onFilesChange(newFiles);
+        }
       }
     },
-    [files]
+    [files, onFilesChange]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
