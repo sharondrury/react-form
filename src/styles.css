@@ -101,10 +101,11 @@ ul {
 }
 
 .preview-image {
-  display: flex;
-  align-items: center;
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: flex;
+  border-radius: 5%;
 }
 
 .dropzone-placeholder {
@@ -169,7 +170,6 @@ h1 {
 
 .ticket-generated-container {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 }
@@ -177,8 +177,6 @@ h1 {
 .ticket-container {
   width: 600px;
   height: 300px;
-  /* display: flex;
-  justify-content: center;   */
   margin-top: 20px;
 }
 
@@ -186,7 +184,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  /* background-color: red; */
   background-image: url(./images/pattern-ticket.svg);
   background-position: cover;
   background-repeat: no-repeat;
@@ -252,7 +249,9 @@ p {
   gap: 20px;
 }
 
-.avatar-display {
-  width: 50px;
-  height: 50px;
+.upload-image {
+  background-image: url(./images/icon-upload.svg);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
 }

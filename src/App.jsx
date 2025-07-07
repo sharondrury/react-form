@@ -16,7 +16,6 @@ const Homepage = () => {
     const formErrors = {};
     let formIsValid = true;
     const namePattern = /^[a-zA-Z]+$/;
-    // const usernamePattern = /^[a-zA-Z]+$/;
     const usernamePattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9@]+$/;
 
     if (!formFields["name"]) {
@@ -49,7 +48,7 @@ const Homepage = () => {
       }
     }
 
-    // Username;
+    // Username
     if (!formFields["username"]) {
       formIsValid = false;
       formErrors["username"] = "This field cannot be empty";
@@ -146,7 +145,9 @@ const Homepage = () => {
                   />
                   <span className="error">{errors["email"]}</span>
 
-                  <label>Github username</label>
+                  <label>
+                    Github username<sup>*</sup>
+                  </label>
                   <input
                     type="text"
                     name="address"
