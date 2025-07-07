@@ -15,7 +15,7 @@ const Homepage = () => {
     const formFields = { ...fields };
     const formErrors = {};
     let formIsValid = true;
-    const namePattern = /^[a-zA-Z]+$/;
+    const namePattern = /^[a-zA-Z'-]+(\s+[a-zA-Z'-]+)+$/;
     const usernamePattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9@]+$/;
 
     if (!formFields["name"]) {
